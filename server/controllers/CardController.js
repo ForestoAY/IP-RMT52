@@ -37,6 +37,7 @@ class CardController {
       const response = await axios.get(
         `https://db.ygoprodeck.com/api/v7/cardinfo.php?id=${id}`
       );
+
       if (!response) {
         throw { name: "NotFound", message: "Card not found" };
       }
