@@ -5,6 +5,8 @@ import LoginPage from "./pages/LoginPage";
 import CardPage from "./pages/CardPage";
 import CardDetailPage from "./pages/CardDetailPage";
 import FavoritePage from "./pages/FavoritePage";
+import EditFavorite from "./pages/EditFavorite";
+import MinigamesPage from "./pages/MinigamesPage";
 
 export const router = createBrowserRouter([
   {
@@ -13,7 +15,7 @@ export const router = createBrowserRouter([
     loader: () => {
       const access_token = localStorage.getItem("access_token");
       if (access_token) {
-        throw redirect("/");
+        throw redirect("/cards");
       }
       return null;
     },
@@ -57,6 +59,14 @@ export const router = createBrowserRouter([
       {
         path: "/cards/favorite",
         element: <FavoritePage />,
+      },
+      {
+        path: "/cards/favorite/edit/:favoriteId",
+        element: <EditFavorite />,
+      },
+      {
+        path: "/minigames",
+        element: <MinigamesPage />,
       },
     ],
   },
